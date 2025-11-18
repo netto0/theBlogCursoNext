@@ -1,4 +1,5 @@
 import { Container } from "@/components/Container";
+import { FeaturedPost } from "@/components/FeaturedPost";
 import { Header } from "@/components/Header";
 import PostsList from "@/components/PostsList";
 import { SpinLoader } from "@/components/SpinLoader";
@@ -9,27 +10,12 @@ export default async function HomePage() {
     <Container>
       <Header />
 
-      <p className="text-justify px-8">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore fuga
-        atque modi, saepe perspiciatis repellendus aperiam inventore facere
-        eaque voluptatum? Asperiores, distinctio deserunt delectus voluptatum
-        impedit nesciunt eos doloremque. Omnis! Lorem ipsum dolor, sit amet
-        consectetur adipisicing elit. Dolore fuga atque modi, saepe perspiciatis
-        repellendus aperiam inventore facere eaque voluptatum? Asperiores,
-        distinctio deserunt delectus voluptatum impedit nesciunt eos doloremque.
-        Omnis! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore
-        fuga atque modi, saepe perspiciatis repellendus aperiam inventore facere
-        eaque voluptatum? Asperiores, distinctio deserunt delectus voluptatum
-        impedit nesciunt eos doloremque. Omnis! Lorem ipsum dolor, sit amet
-        consectetur adipisicing elit. Dolore fuga atque modi, saepe perspiciatis
-        repellendus aperiam inventore facere eaque voluptatum? Asperiores,
-        distinctio deserunt delectus voluptatum impedit nesciunt eos doloremque.
-        Omnis!
-      </p>
+      <FeaturedPost />
 
       <Suspense fallback={<SpinLoader />}>
         <PostsList />
       </Suspense>
+
       <h1 className="text-6xl">Footer</h1>
     </Container>
   );

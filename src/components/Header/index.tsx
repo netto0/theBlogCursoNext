@@ -1,8 +1,11 @@
-"use client"
+import Link from "next/link";
+
 export function Header() {
-    return (
-    <div className="text-6xl">
-      <h1 onClick={()=>alert("fodase")}>Componente Header</h1>
-    </div>
+  return (
+    <header>
+      <h1 className="text-4xl/normal font-extrabold py-8 sm:text-5xl/normal sm:py-10 md:text-6xl/normal md:py-11 lg:text-7xl/normal lg:py-12">
+        <Link href="#">The Blog</Link>
+      </h1>
+    </header>
   );
 }
