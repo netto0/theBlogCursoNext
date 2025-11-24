@@ -1,15 +1,15 @@
 import { PostCoverImage } from "../PostCoverImage";
 import { PostSummary } from "../PostSummary";
-import { findAllPublicPosts } from "@/lib/posts/queries";
+import { findAllPublicPostsCached } from "@/lib/posts/queries";
 
 export async function FeaturedPost() {
-  const posts = await findAllPublicPosts();
+  const posts = await findAllPublicPostsCached();
   const post = posts[0];
 
   return (
     <section className="grid sm:grid-cols-2 gap-8 mb-16 group">
       <PostCoverImage
-        href={`/posts/${post.slug}`}
+        href={`/post/${post.slug}`}
         alt={post.title}
         src={post.coverImageUrl}
         priority
@@ -19,7 +19,7 @@ export async function FeaturedPost() {
         createdAt={post.createdAt}
         excerpt={post.excerpt}
         heading="h1"
-        link="#"
+        link={`/post/${post.slug}`}
         title={post.title}
       />
     </section>
