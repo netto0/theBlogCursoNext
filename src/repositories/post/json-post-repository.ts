@@ -12,12 +12,12 @@ const JSON_POSTS_FILE_PATH = resolve(
   "posts.json"
 );
 
-const SIMULATE_WAIT_IN_MS = 0;
+const SIMULATE_WAIT_IN_MS = 1000;
 
 export class JsonPostRepository implements PostRepository {
+  
   private async simulateWait() {
     if (SIMULATE_WAIT_IN_MS <= 0) return;
-
     await new Promise((resolve) => setTimeout(resolve, SIMULATE_WAIT_IN_MS));
   }
 
@@ -29,13 +29,12 @@ export class JsonPostRepository implements PostRepository {
   }
 
   async findAllPublic(): Promise<PostModel[]> {
-    await this.simulateWait();
+    await this.simulateWait()
     const posts = await this.readFromDisk();
     return posts.filter(post => post.published);
   }
 
   async findById(id: string): Promise<PostModel> {
-    await this.simulateWait();
     const posts = await this.findAllPublic();
     const post = posts.find((post) => post.id === id);
 
@@ -44,7 +43,6 @@ export class JsonPostRepository implements PostRepository {
   }
 
   async findBySlug(slug: string): Promise<PostModel> {
-    await this.simulateWait();
     const posts = await this.findAllPublic();
     const post = posts.find((post) => post.slug === slug);
 

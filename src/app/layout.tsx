@@ -5,8 +5,11 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "The Blog",
-  description: "Descrição página",
+  title: {
+    default: "The Blog - Projeto do curso do Otávio Miranda",
+    template: "%s | The Blog",
+  },
+  description: "A descrição é aqui",
 };
 
 export default function RootLayout({
@@ -15,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html>
+    <html className="bg-slate-900">
       <body>
         <Container>
           <Header />
